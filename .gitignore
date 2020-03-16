@@ -1,2 +1,4 @@
-*
-!/[Aa]/*.cpp
+*.*
+!*.cpp
+!.gitignore
+!.readme.md
