@@ -1,5 +1,7 @@
-如果你来到这个页面，那么一切都会好起来（迫真）  
+<center>如果你来到这个页面，那么一切都会好起来（迫真）  </center>
 ===
+<center>[单击此处进入源码库](https://github.com/Aminor-z/ACM "小光头的ACM源码库")</center>
+---
 * 我要怎么搜题号：
     > ***
     >按Ctrl+F搜题号。  
