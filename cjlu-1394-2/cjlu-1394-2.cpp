@@ -41,14 +41,15 @@ int main() {
 			{
 				if (t & 1) {
 					int pos = i + *a;
-					if (DP[pos] == 1 || DP[pos] == -1)continue;
-					else DP[pos] = 1;
+					if (DP[pos] == 0)
+						DP[pos] = -1;
 				}
 				else
 				{
 					int pos = i + *a;
-					if(DP[pos]==0)
-					DP[pos] = -1;
+					if (DP[pos] != -1)
+						DP[pos] = 1;
+					
 				}
 			}
 		}
