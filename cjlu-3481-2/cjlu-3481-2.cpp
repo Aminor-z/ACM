@@ -14,7 +14,6 @@ int main()
 	scanf("%hd %hd", &N, &M);
 	for (short i = 0; i < N; i++)
 		scanf("%hd %hd", &pairlist[i][0], &pairlist[i][1]);
-
 	for (register short i = 0; i < M; i++)
 	{
 		status = true;
