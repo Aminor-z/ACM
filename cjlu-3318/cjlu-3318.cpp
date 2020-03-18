@@ -12,28 +12,27 @@ public:
 	int capacity;
 	int* head;
 
-	int* begin()
+	inline int* begin()
 	{
 		return &num[0];
 	}
-	int* end() {
+	inline int* end() {
 		return &num[0] + capacity - 1;
 	}
-	Array(int _capacity)
+	Array(const int& _capacity)
 	{
 
 		capacity = _capacity;
 		num = new int[_capacity];
 		head = num;
 	}
-	int* MoveRight()
+	inline int* MoveRight()
 	{
 		return (head == begin()) ? head = end() : head--;
 	}
 	bool OutputAll()
 	{
-
-		int* p;
+		register int* p;
 		p = head;
 		if (capacity == 1)return cout << *p, true;
 		cout << *p << " ";
@@ -53,9 +52,7 @@ public:
 				else cout << *p << " ";
 			}
 			(p == end()) ? p = begin() : p++;
-
 		}
-
 		return true;
 	}
 };
@@ -63,13 +60,12 @@ int main()
 {
 	std::ios::sync_with_stdio(false);
 	std::cin.tie(0);
-	int N, M;
+	register int N, M;
 	while (cin >> N)
 	{
 		if (N == -1)break;
 		Array A(N);
-		
-		int i = 0;
+		register int i = 0;
 		for (; i < N; i++)
 		{
 			cin >> A.num[i];
@@ -77,6 +73,7 @@ int main()
 		while (cin >> M)
 		{
 			if (M == 0)break;
+			M %= N;
 			for (i = 0; i < M; i++)
 			{
 				A.MoveRight();
