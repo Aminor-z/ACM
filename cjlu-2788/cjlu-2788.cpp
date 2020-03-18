@@ -10,12 +10,18 @@
 #include <sstream>
 #include <vector>
 using namespace std;
-
 int main()
 {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(0);
-
+	int n;
+	while (cin >> n)
+	{
+		int r = 1, result = 0;
+		for (int i = 1; i <= n; i++)
+		{
+			r *= i;
+			result += r;
+		}
+		cout << result << endl;
+	}
 	return 0;
 }
-
