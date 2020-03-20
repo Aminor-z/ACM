@@ -10,6 +10,7 @@
 #include <sstream>
 #include <vector>
 using namespace std;
+//大数据运算
 class BigInt
 {
 	inline void fix(string& a, string& b)
@@ -100,6 +101,7 @@ public:
 		return t;
 	}
 };
+//大数据取小
 BigInt min(const BigInt& a, const BigInt& b)
 {
 	if (a.num.length() > b.num.length())
@@ -122,13 +124,13 @@ inline void OLD_H4(const unsigned long long& n)
 	if (n < 63)
 		for (register unsigned long long i = 1; i < n; i++)
 		{
-			if(f[n].num!="P")
-			f[n] = min(f[n], f[i].twice() + POW2[n - i] - BigInt("1"));
+			if (f[n].num != "P")
+				f[n] = min(f[n], f[i].twice() + POW2[n - i] - BigInt("1"));
 			else
-				f[n] =f[i].twice() + POW2[n - i] - BigInt("1");
+				f[n] = f[i].twice() + POW2[n - i] - BigInt("1");
 		}
 	else
-		for (register unsigned long long i = n-10; i < n; i++)
+		for (register unsigned long long i = n - 10; i < n; i++)
 		{
 
 			if (f[n].num != "P")
@@ -154,7 +156,7 @@ int main()
 	std::cin.tie(0);
 	for (register int i = 1; i < 60; i++)
 	{
-		pow2[i] = pow2[i - 1]*2;
+		pow2[i] = pow2[i - 1] * 2;
 	}
 	register int w = 1, now = 2;
 	for (register int i = 1; i < 1661;)
@@ -175,8 +177,6 @@ int main()
 	{
 		cout << p[n] << endl;
 	}
-
-
 	return 0;
 }
 
