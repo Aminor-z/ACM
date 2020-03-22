@@ -47,7 +47,7 @@ void run_DP()
 			sum %= 1024;
 		}
 		DP[i][1001] = sum;
-		//		cout << i << " " << sum << endl;
+		//cout << i << " " << sum << endl;
 	}
 }
 int main()
