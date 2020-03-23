@@ -2,5 +2,6 @@
 !*.cpp
 !.gitignore
 !README.md
-Temp.cpp
-Temp2.cpp
+Temp/Temp.cpp
+Temp2/Temp2.cpp
+Temp/Temp.cpp
