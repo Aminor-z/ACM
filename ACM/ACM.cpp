@@ -1,7 +1,9 @@
 ﻿#pragma warning(disable:4996)
 #include <algorithm>
+#include <functional>
 #include <map>
 #include <math.h>
+#include <numeric>
 #include <iostream>
 #include <queue>
 #include <set>

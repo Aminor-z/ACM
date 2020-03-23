@@ -1,7 +1,9 @@
 ﻿#pragma warning(disable:4996)
 #include <algorithm>
+#include <functional>
 #include <map>
 #include <math.h>
+#include <numeric>
 #include <iostream>
 #include <queue>
 #include <set>
@@ -88,8 +90,8 @@ int main()
 			}
 
 		}
-		if(N<100000)
-			cout<< (long long)dfs_1(0, Z)<<endl;
+		if (N < 100000)
+			cout << (long long)dfs_1(0, Z) << endl;
 		else {
 			dfs_2(0, Z);
 			cout << (long long)(ans + 1e-5) << endl;
