@@ -10,16 +10,16 @@
 #include <sstream>
 #include <vector>
 using namespace std;
-bool cmp(const pair<string, unsigned int>& a, const pair<string, unsigned int>& b)
+inline bool cmp(const pair<string, unsigned int>& a, const pair<string, unsigned int>& b)
 {
 	if (a.second == b.second)return a.first < b.first;
 	return a.second > b.second;
 }
 int main()
 {
-	//std::ios::sync_with_stdio(false);
-	//std::cin.tie(0);
-	int n;
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(0);
+	register int n;
 	while (cin >> n)
 	{
 		if (n == 0)break;
@@ -31,7 +31,7 @@ int main()
 			m[s]++;
 		}
 		vector<pair<string, unsigned int>> v;
-		for (map<string, unsigned int>::iterator iter = m.begin(); iter != m.end(); iter++)
+		for (register map<string, unsigned int>::iterator iter = m.begin(); iter != m.end(); iter++)
 		{
 			v.push_back(pair<string, unsigned int>(iter->first, iter->second));
 		}
