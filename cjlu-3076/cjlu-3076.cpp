@@ -12,9 +12,12 @@
 #include <sstream>
 #include <vector>
 using namespace std;
+//这题建系是↑y
+//         ↑         x
+//         0→→→→→→→→→
+//吐了，第一次做的时候上下反了反
 vector<vector<bool>> v;
 bool** DFS_MEET;
-int n;
 pair<int, int> _begin, _end;
 string s;
 bool DFS(const int& x, const int& y)
@@ -40,18 +43,19 @@ bool DFS(const int& x, const int& y)
 			//s = "D"+s;
 			return true;
 		}
-		if (DFS(x - 1, y )) {
+		if (DFS(x - 1, y)) {
 			//cout << "<--(" << x - 1 << "," << y - 1 << ")";
 			//s = "L"+s;
 			return true;
 		}
-		
+
 	}
 	else
 		return false;
 }
 int main()
 {
+	int n;
 	while (cin >> n) {
 		s.clear();
 		v.clear();
@@ -62,7 +66,7 @@ int main()
 			DFS_MEET[i] = new bool[n + 2];
 			memset(DFS_MEET[i], false, sizeof(DFS_MEET[i]));
 		}
-		//建图
+		//建图+围墙
 		v.resize(n + 2);
 		v[0] = vector<bool>(n + 2);
 		for (int i = 1; i <= n; i++)
@@ -75,9 +79,9 @@ int main()
 				_v[j] = (bool)t;
 			}
 			_v[n + 1] = false;
-			v[i]=_v;
+			v[i] = _v;
 		}
-		v[n+1] = vector<bool>(n + 2);
+		v[n + 1] = vector<bool>(n + 2);
 		//↑建图结束
 		cin >> _begin.first >> _begin.second >> _end.first >> _end.second;
 		++_begin.first;
@@ -98,5 +102,3 @@ int main()
 	}
 	return 0;
 }
-
-

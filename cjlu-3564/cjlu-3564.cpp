@@ -10,9 +10,9 @@ int N;
 vector<int>* DP;
 void run_DP()
 {
-	for (int i = 1; i < N; i++)
+	for (register int i = 1; i < N; i++)
 	{
-		for (int j = 0; j < i+1; j++)
+		for (register int j = 0; j < i+1; j++)
 		{
 			if (j == 0)
 			{
@@ -33,7 +33,7 @@ int main()
 {
 	std::ios::sync_with_stdio(false);
 	std::cin.tie(0);
-	int i,j,x,t;
+	register int i,j,x,t;
 	while (cin >> N)
 	{
 		DP = new vector<int>[N];
@@ -51,7 +51,7 @@ int main()
 			continue;
 		}
 		run_DP();
-		int _max = -1e6;
+		register int _max = -1e6;
 		for (i = 0; i < N; i++)
 		{
 			_max = max(_max, DP[N-1][i]);
