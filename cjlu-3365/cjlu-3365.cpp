@@ -20,12 +20,9 @@ int main()
     register int i, c;
     while ((c = getchar()) != EOF) {
         for (i = 1; decode[i] && decode[i] != c; ++i);
-        {
-            if (c == '\n')continue;
-            if (decode[i])
-                putchar(decode[i - 1]);
-            else putchar(c);
-        }
+        if (decode[i])
+            putchar(decode[i - 1]);
+        else putchar(c);
     }
     return 0;
 }
