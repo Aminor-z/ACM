@@ -12,91 +12,49 @@
 #include <sstream>
 #include <vector>
 using namespace std;
-vector<vector<bool>> v;
-bool** DFS_MEET;
-int n;
-pair<int, int> _begin, _end;
-string s;
-bool DFS(const int& x, const int& y)
-{
-	if (DFS_MEET[x][y])return false;
-	DFS_MEET[x][y] = true;
-	if (v[x][y])
-	{
-		if (x == _end.first && y == _end.second)return true;
-		if (DFS(x, y - 1)) {
-			//cout << "<--(" << x - 1 << "," << y - 1 << ")";
-			//s = "U"+s;
-			return true;
-		}
-		if (DFS(x + 1, y))
-		{
-			//cout << "<--(" << x - 1 << "," << y - 1 << ")";
-			//s = "R"+s;
-			return true;
-		}
-		if (DFS(x, y + 1)) {
-			//cout << "<--(" << x - 1 << "," << y - 1 << ")";
-			//s = "D"+s;
-			return true;
-		}
-		if (DFS(x - 1, y )) {
-			//cout << "<--(" << x - 1 << "," << y - 1 << ")";
-			//s = "L"+s;
-			return true;
-		}
-		
-	}
-	else
-		return false;
-}
+
 int main()
 {
-	while (cin >> n) {
-		s.clear();
-		v.clear();
-		register int t;
-		DFS_MEET = new bool* [n + 2];
-		for (register int i = 0; i < n + 2; i++)
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(0);
+	int _n;
+	cin >> _n;
+	for (register int w = 1; w <= _n; w++)
+	{
+		int n;
+		cin >> n;
+		vector<pair<int, pair<int, int>>> v(n);
+		register int c = 0;
+		for (pair<int, pair<int, int>>& t : v)
 		{
-			DFS_MEET[i] = new bool[n + 2];
-			memset(DFS_MEET[i], false, sizeof(DFS_MEET[i]));
+			cin >> t.second.first >> t.second.second;
+			t.first = c++;
 		}
-		//建图
-		v.resize(n + 2);
-		v[0] = vector<bool>(n + 2);
-		for (int i = 1; i <= n; i++)
+		sort(v.begin(), v.end(), [](const pair<int, pair<int, int>>& a, const pair<int, pair<int, int>>& b) {return a.second.second < b.second.second; });
+		int J_end = 0, C_end = 0;
+		char* s = new char[n + 20];
+		memset(s, '\0', sizeof(char) * (n + 20));
+		for (const pair<int, pair<int, int>>& t : v)
 		{
-			vector<bool> _v(n + 2);
-			_v[0] = false;
-			for (int j = 1; j <= n; j++)
+			if (C_end <= t.second.first)
 			{
-				cin >> t;
-				_v[j] = (bool)t;
+				s[t.first] = 'C';
+				C_end = t.second.second;
 			}
-			_v[n + 1] = false;
-			v[i]=_v;
+			else if (J_end <= t.second.first)
+			{
+				s[t.first] = 'J';
+				J_end = t.second.second;
+			}
+			else {
+				strcpy(s, "IMPOSSIBLE\0");
+				break;
+			}
+
 		}
-		v[n+1] = vector<bool>(n + 2);
-		//↑建图结束
-		cin >> _begin.first >> _begin.second >> _end.first >> _end.second;
-		++_begin.first;
-		++_begin.second;
-		++_end.first;
-		++_end.second;
-		if (_begin.first == _end.first && _begin.second == _end.second)
-		{
-			cout << "YES" << endl;
-			continue;
-		}
-		if (DFS(_begin.first, _begin.second))
-		{
-			//cout << s << endl;
-			cout << "YES" << endl;
-		}
-		else cout << "NO" << endl;
+		std::cout << "Case #" << w << ": ";
+		std::cout << s << endl;
 	}
 	return 0;
 }
-
 
