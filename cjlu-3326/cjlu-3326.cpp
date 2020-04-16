@@ -11,31 +11,26 @@
 #include <string.h>
 #include <sstream>
 #include <vector>
-#define QWQ 32
+#include <deque>
 using namespace std;
-
-
 int main()
 {
 	std::ios::sync_with_stdio(false);
 	std::cin.tie(0);
-	set<string> _set;
-	string s;
-	while (getline(cin,s))
+	register int n, t, i;
+	set<int> s;
+	while (cin >> n)
 	{
-		for (char& _s : s)
-		{
-			if (isalpha(_s)) { if (isupper(_s))_s+=QWQ; }
-			else _s = ' ';
+		s.clear();
+		s.insert(0);
+		for (i = 0; i < n; i++) {
+			cin >> t;
+			if (t < *s.rbegin()) {
+				s.erase(s.upper_bound(t));
+			}
+			s.insert(t);
 		}
-		stringstream ss(s);
-		while (ss >> s)_set.insert(s);
+		cout << s.size() - 1 << endl;
 	}
-	for (const string& _s : _set)
-	{
-		cout << _s << endl;
-	}
-
 	return 0;
 }
-
