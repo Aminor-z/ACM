@@ -59,7 +59,7 @@ int main()
 				s.pop();
 				++now;
 			}
-			if (now!=n+1)flag = false;
+			if (now != n + 1)flag = false;
 			if (flag)cout << "Yes\n";
 			else
 				cout << "No\n";
